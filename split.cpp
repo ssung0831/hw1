@@ -1,3 +1,5 @@
+#include <cstddef>
+
 /*
 CSCI 104: Homework 1 Problem 1
 
@@ -18,6 +20,38 @@ void split(Node*& in, Node*& odds, Node*& evens)
 {
   /* Add code here */
 // WRITE YOUR CODE HERE
+
+  if(in == nullptr){
+    if(odds != nullptr){
+      odds -> next = nullptr;
+    }
+    
+    if(evens != nullptr){
+      evens -> next = nullptr;
+    }
+    
+    return;
+  }
+  else if((in -> value) % 2 == 1){ //odd
+    Node* n = in -> next;
+    if(odds == nullptr){
+      odds = in;
+    }
+    else{
+      odds -> next = in;
+    }
+    split(n, in, evens);
+  }
+  else if((in -> value) % 2 == 0){ //even
+    Node* n = in -> next;
+    if(evens == nullptr){
+      evens = in;
+    }
+    else{
+      evens -> next = in;
+    }
+    split(n, odds, in);
+  }
 
 }
 
