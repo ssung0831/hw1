@@ -1,3 +1,6 @@
+/*
+This is the header file for an unrolled linked list
+*/
 #ifndef ULLISTSTR_H
 #define ULLISTSTR_H
 #include <string>
