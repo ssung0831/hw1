@@ -149,8 +149,7 @@ int main(int argc, char* argv[])
 		dat4.pop_front();
 	}
 	cout << dat4.front();
-
-	cout << endl;
+	cout << endl << "Should print: 9 10 0" << endl;
 
 	//7. Random Test (copied from instructions)
 	cout << "Instructions Test" << endl;
