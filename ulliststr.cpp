@@ -70,13 +70,14 @@ void ULListStr::push_back(const std::string& val){
   void ULListStr::pop_back(){
 
 		//if list is empty, no action
-		if(size_ <= 0){
+		if(empty()){
 			return;
 		}
 		else if (size_ == 1){ //remove the only value, so set head and tail to null
 			delete tail_;
 			head_ = NULL;
-			tail_ = head_;
+			tail_ = NULL;
+			size_--;
 		}
 		else if(tail_ -> last == 1){ //if there is a node with one value, take it out
 			tail_ = tail_ -> prev;
@@ -134,18 +135,19 @@ void ULListStr::push_back(const std::string& val){
   void ULListStr::pop_front(){
 
 		//if empty, do nothing
-		if(size_ <= 0){
+		if(size_ == 0){
 			return;
 		}
 		else if (size_ == 1){ //remove the only value, so set head and tail to NULL
-			Item* temp = head_;
-			delete temp;
+			delete head_;
 			head_ = NULL;
-			tail_ = head_;
+			tail_ = NULL;
+			size_--;
 		}
 		else if(head_ -> first == ARRSIZE - 1){ //if there is a node with one value, take it out
 			head_ = head_ -> next;
 			delete head_ -> prev;
+			head_ -> prev = NULL;
 			size_--;
 		}
 		else{
